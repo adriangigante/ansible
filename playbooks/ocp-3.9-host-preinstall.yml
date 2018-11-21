@@ -1,0 +1,43 @@
+- hosts: ocp
+  become: yes
+  vars_files:
+    - /Users/agigante/ansible/secrets/password.yml
+  
+  tasks:
+
+    - name: Register & attach Employe SKU
+      redhat_subscription:
+        state: present
+        username: rhn-sa-agigante
+        password: "{{ password.rhn }}"
+        pool_ids: 8a85f98b635f3e6d0163cd94eebc65b4
+
+    - name: Disable all repositories
+      rhsm_repository:
+        name: '*'
+        state: disabled
+
+    - name: Enable OCP repositories
+      rhsm_repository:
+        name: rhel-7-server-rpms,rhel-7-server-extras-rpms,rhel-7-server-ose-3.9-rpms,rhel-7-fast-datapath-rpms,rhel-7-server-ansible-2.4-rpms
+        state: enabled
+
+    - name: Update all packages
+      yum: 
+        name: '*' 
+        state: latest
+
+    - name: Install base packages
+      yum:
+        name: wget,git,net-tools,bind-utils,yum-utils,iptables-services,bridge-utils,bash-completion,kexec-tools,sos,psacct
+        state: latest
+
+    - name: Install OpenShift Installer
+      yum:
+        name: openshift-ansible
+        state: latest
+
+    - name: Install OpenShift Installer
+      yum:
+        name: docker-1.13.1
+        state: present

@@ -1,0 +1,22 @@
+- hosts: win
+  
+  tasks:
+
+    #- name: Ensure Tomcat 8.5.12 is installed via Chocolatey
+    #  win_chocolatey:
+    #    name: tomcat
+    #    state: present
+    #    version: '8.5.12'
+
+    - name: Copy accross HotFixes 
+      win_copy:
+        src: /Users/agigante/ansible/etc/windows10.0-kb4465659-x64_af8e00c5ba5117880cbc346278c7742a6efa6db1.msu
+        dest: C:\temp\windows10.0-kb4465659-x64_af8e00c5ba5117880cbc346278c7742a6efa6db1.msu
+        force: no
+  
+    - name: Install hotfix validating KB
+      win_hotfix:
+        hotfix_kb: KB4465659
+        state: present
+        source: C:\temp\windows10.0-kb4465659-x64_af8e00c5ba5117880cbc346278c7742a6efa6db1.msu
+      register: hotfix_install
