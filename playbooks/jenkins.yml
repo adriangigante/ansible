@@ -1,13 +1,14 @@
 - hosts: localhost
   tasks:
-    
+
+
 #     - jenkins_job:
 #        name: cicd-msac-162d-inventory-pipeline
 #        token: b95116874a2f8bac40bc5c57cde33a44
 #        url: https://jenkins-cicd-msac-162d.apps.rhpds.openshift.opentlc.com
 #        user: agigante-redhat.com-admin
 
-      - name: Start Jenkins pipeline
+     - name: Start Jenkins pipeline
        uri:
          url: "https://jenkins-cicd-msac-162d.apps.rhpds.openshift.opentlc.com/job/cicd-msac-162d-inventory-pipeline/buildWithParameters" 
          method: POST
