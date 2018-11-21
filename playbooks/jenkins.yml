@@ -1,5 +1,10 @@
 - hosts: localhost
   tasks:
+     - name: Install python-jenkins
+       pip:
+        executable: pip2
+        name: python-jenkins
+        state: latest
 
      - jenkins_job:
         name: cicd-msac-162d-inventory-pipeline
