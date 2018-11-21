@@ -1,13 +1,20 @@
 - hosts: localhost
   tasks:
-     - name: Install python-jenkins
-       pip:
-        executable: pip2
-        name: python-jenkins
-        state: latest
+    
+#     - jenkins_job:
+#        name: cicd-msac-162d-inventory-pipeline
+#        token: b95116874a2f8bac40bc5c57cde33a44
+#        url: https://jenkins-cicd-msac-162d.apps.rhpds.openshift.opentlc.com
+#        user: agigante-redhat.com-admin
 
-     - jenkins_job:
-        name: cicd-msac-162d-inventory-pipeline
-        token: b95116874a2f8bac40bc5c57cde33a44
-        url: https://jenkins-cicd-msac-162d.apps.rhpds.openshift.opentlc.com
-        user: agigante-redhat.com-admin
+      - name: Start Jenkins pipeline
+       uri:
+         url: "https://jenkins-cicd-msac-162d.apps.rhpds.openshift.opentlc.com/job/cicd-msac-162d-inventory-pipeline/buildWithParameters" 
+         method: POST
+         user: agigante-redhat.com-admin
+         password: aec8c26678ab210a9c07efafb778a7c5
+         validate_certs: no
+         force_basic_auth: yes
+         status_code: [200, 302]
+
+
