@@ -10,7 +10,7 @@
 
     - name: Copy accross HotFixes 
       win_copy:
-        src: /Users/agigante/ansible/etc/windows10.0-kb4465659-x64_af8e00c5ba5117880cbc346278c7742a6efa6db1.msu
+        src: /tmp/windows10.0-kb4465659-x64_af8e00c5ba5117880cbc346278c7742a6efa6db1.msu
         dest: C:\temp\windows10.0-kb4465659-x64_af8e00c5ba5117880cbc346278c7742a6efa6db1.msu
         force: no
   
