@@ -1,15 +1,15 @@
 - hosts: ocp
   become: yes
   vars_files:
-    - /Users/agigante/ansible/secrets/password.yml
+    - ../var/secrets.yml
   
   tasks:
 
     - name: Register & attach Employe SKU
       redhat_subscription:
         state: present
-        username: rhn-sa-agigante
-        password: "{{ password.rhn }}"
+        username: "{{ rhn_username }}"
+        password: "{{ rhn_password }}"
         pool_ids: 8a85f98b635f3e6d0163cd94eebc65b4
 
     - name: Disable all repositories
