@@ -1,6 +1,6 @@
 - hosts: all
   tasks:
   - name: Check HTTPD status
-    command: systemctl httpd status
+    command: systemctl status httpd
     args:
       warn: false
