@@ -1,4 +1,5 @@
-- tasks:
+- hosts:all
+  tasks:
   - name: Check HTTPD status
     command: service httpd status
     args:
