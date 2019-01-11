@@ -1,5 +1,4 @@
-- hosts: localhost
-  tasks:
+- tasks:
   - name: Check HTTPD status
     command: service httpd status
     args:
