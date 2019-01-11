@@ -1,0 +1,3 @@
+- command: service httpd status
+  args:
+    warn: false
