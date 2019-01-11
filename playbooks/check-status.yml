@@ -1,3 +1,6 @@
-- command: service httpd status
-  args:
-    warn: false
+- hosts: localhost
+  tasks:
+  - name: Check HTTPD status
+    command: service httpd status
+    args:
+      warn: false
