@@ -1,6 +1,9 @@
 - hosts: all
   tasks:
-  - name: Check HTTPD status
-    command: systemctl status httpd
-    args:
-      warn: false
+  - name: collect facts about system services
+    service_facts:
+    register: services_state
+
+  - name: Debug
+    debug:
+      var: services_state
