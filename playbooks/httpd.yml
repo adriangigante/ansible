@@ -1,7 +1,7 @@
 - hosts: all
   tasks:
   - name: Check mod_security & mod_evasive
-    command: httpd -M | grep -Ei '(evasive|security)'
+    command: httpd -M
     register: services_state
 
   - name: Debug
