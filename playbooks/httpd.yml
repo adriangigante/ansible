@@ -1,0 +1,9 @@
+- hosts: all
+  tasks:
+  - name: Check mod_security & mod_evasive
+    command: httpd -M | grep -Ei '(evasive|security)'
+    register: services_state
+
+  - name: Debug
+    debug:
+      var: services_state
