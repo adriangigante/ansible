@@ -1,7 +1,5 @@
 - name: Hello World Sample
   hosts: all
-    vars:  
-      ansible_user: ec2-user
   tasks:
     - name: Hello Message
       debug:
