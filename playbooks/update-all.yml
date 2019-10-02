@@ -1,7 +1,7 @@
 - name: Upgrade all packages
   hosts: all
   tasks:
-   - name: Update all to latest
-     yum:
-       name: '*'
-       state: latest
+    - name: Update all to latest
+      yum:
+        name: '*'
+        state: latest
