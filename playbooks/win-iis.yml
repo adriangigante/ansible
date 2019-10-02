@@ -1,0 +1,18 @@
+- name: IIS Services
+  hosts: all
+  tasks:
+
+   - name: Copy new index
+     win_copy:
+       src: files/index.html
+       dest: "C:\\inetpub\\wwwroot\\index.html"
+
+   - name: Restart IIS
+     win_service:
+       name: w3svc
+       state: restarted
+
+   - name: Check IIS status
+     win_service:
+       name: w3svc
+       state: started
