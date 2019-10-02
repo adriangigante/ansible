@@ -4,7 +4,7 @@
 
    - name: Copy new index
      win_copy:
-       src: files/index.html
+       src: /etc/redhat-release
        dest: "C:\\inetpub\\wwwroot\\index.html"
 
    - name: Restart IIS
