@@ -1,12 +1,7 @@
-- hosts: all
-  
+---
+- name: Copy & Install Windows HotFixe
+  hosts: all
   tasks:
-
-    #- name: Ensure Tomcat 8.5.12 is installed via Chocolatey
-    #  win_chocolatey:
-    #    name: tomcat
-    #    state: present
-    #    version: '8.5.12'
 
     - name: Copy accross HotFixes 
       win_copy:
