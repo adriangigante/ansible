@@ -1,0 +1,9 @@
+---
+- name: Install ISS Web Server
+  hosts: all
+  tasks:
+
+  - name: Install IIS (Web-Server only)
+    win_feature:
+      name: Web-Server
+      state: present
