@@ -1,0 +1,14 @@
+---
+- name: Install the latest version of Apache
+  hosts: all
+  tasks:
+
+  - name: Install Apache
+    yum:
+      name: httpd
+      state: latest
+
+  - name: Check Apache has started
+    service:
+      name: httpd
+      state: started
