@@ -1,0 +1,8 @@
+- name: Update a specific package
+  hosts: all
+  become: yes
+  tasks:
+    - name: Updating {{package}} to latest
+      yum:
+        name: {{package}}
+        state: latest
