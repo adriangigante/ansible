@@ -1,0 +1,15 @@
+---
+- name: Update Apache conent
+  hosts: all
+  tasks:
+
+  - name: Download new index.html
+    get_url:
+      url: https://raw.githubusercontent.com/adriangigante/ansible/master/etc/index.html
+      dest: /var/www/html/
+      mode: '0440'
+
+  - name: Restart service httpd, in all cases
+    service:
+      name: httpd
+      state: restarted
