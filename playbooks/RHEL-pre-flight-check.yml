@@ -1,6 +1,6 @@
 ---
 - name: Plays for running pre-flight checks - RHEL or CentOS LINUX only. 
-  hosts: linux 
+  hosts: all 
   #strategy: debug
   gather_facts: yes 
   vars:
