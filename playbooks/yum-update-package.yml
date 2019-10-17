@@ -2,7 +2,8 @@
   hosts: all
   become: yes
   tasks:
-    - name: Updating {{package}} to latest
+    - name: Updating "{{package}}" to latest
       yum:
-        name: {{package}}
+        name: "{{ item }}"
         state: latest
+      with_items: "{{ package }}"
