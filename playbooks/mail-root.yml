@@ -1,3 +1,4 @@
+--
 - name: Example playbook sending mail to root
   mail:
     subject: System has been successfully provisioned.
