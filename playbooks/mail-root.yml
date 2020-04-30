@@ -1,5 +1,9 @@
 ---
-- name: Example playbook sending mail to root
-  mail:
-    subject: System has been successfully provisioned.
-  delegate_to: localhost
+- name: Send mail to root
+  hosts: all
+  tasks:
+  
+  - name: Notify provisioned status
+    mail:
+      subject: System has been successfully provisioned.
+    delegate_to: localhost
