@@ -1,0 +1,6 @@
+- name: Hello World Sample
+  hosts: "{{ variable_host | default('all') }}"
+  tasks:
+    - name: Hello Message
+      debug:
+        msg: "Hello World!"
