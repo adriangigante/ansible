@@ -1,5 +1,6 @@
 ---
 - name : This playbook will run windows update
+  hosts: "{{ variable_host | default('all') }}"
   tasks:
   - name: Update but Exlude updates based on the update title - basically WinUpdate to current
     win_updates:
