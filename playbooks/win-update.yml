@@ -1,0 +1,10 @@
+---
+- name : This playbook will run windows update
+  tasks:
+  - name: Update but Exlude updates based on the update title - basically WinUpdate to current
+    win_updates:
+      category_name:
+      - SecurityUpdates
+      - CriticalUpdates
+      - Definition Updates
+      - Microsoft Defender Antivirus
