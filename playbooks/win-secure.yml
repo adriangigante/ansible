@@ -8,12 +8,12 @@
       name: "value"
       data: "0"
       type: dword
-  - name: Disable Windows Store | disable-windows-store
-    win_regedit:
-      path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore
-      name: "AutoDownload"
-      data: "4"
-      type: dword
+#  - name: Disable Windows Store | disable-windows-store
+#    win_regedit:
+#      path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore
+#      name: "AutoDownload"
+#      data: "4"
+#      type: dword
   - name: Ensure Turn off Automatic Download and Install of Updates is set to Disabled
     win_regedit:
       path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore
