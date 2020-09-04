@@ -1,8 +1,8 @@
 ---
-- name: Managing Windows Service
+- name: Manage Windows Service
   hosts: "{{ variable_host | default('all') }}"
   tasks:
-  - name: Restart a service
+  - name: Setting service state
     win_service:
-      name: "{{ service_name | default('spool') }}"
+      name: "{{ service_name | default('spooler') }}"
       state: "{{ service_state | default('started') }}"
